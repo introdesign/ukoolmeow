@@ -1,10 +1,9 @@
-import FormData from './components/FormData';
+
 
 function App() {
   return (
     <div className="App">
-      <FormData/>
-      <FormData />
+     <div>Welcome to Ukool Meow</div>
     </div>
   );
 }
