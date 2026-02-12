@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import {
   getIdToken,
   onAuthStateChanged,
@@ -80,31 +80,34 @@ function AdminConsole() {
     }));
   };
 
-  const exchangeGoogleToken = async (firebaseUser) => {
-    const idToken = await getIdToken(firebaseUser, true);
-    const response = await fetch(`${apiBase}/api/auth/google`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ idToken }),
-    });
+  const exchangeGoogleToken = useCallback(
+    async (firebaseUser) => {
+      const idToken = await getIdToken(firebaseUser, true);
+      const response = await fetch(`${apiBase}/api/auth/google`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ idToken }),
+      });
 
-    if (!response.ok) {
-      throw new Error("Failed to verify Google sign-in on the server.");
-    }
+      if (!response.ok) {
+        throw new Error("Failed to verify Google sign-in on the server.");
+      }
 
-    const data = await response.json();
-    const profile = data?.user || {};
+      const data = await response.json();
+      const profile = data?.user || {};
 
-    setCurrentUser({
-      id: profile.id || firebaseUser.uid,
-      name: profile.name || firebaseUser.displayName || "Unknown",
-      email: profile.email || firebaseUser.email || "",
-      role: profile.role || "user",
-    });
-    setAuthNotice("Google sign-in verified. Role loaded from server.");
-  };
+      setCurrentUser({
+        id: profile.id || firebaseUser.uid,
+        name: profile.name || firebaseUser.displayName || "Unknown",
+        email: profile.email || firebaseUser.email || "",
+        role: profile.role || "user",
+      });
+      setAuthNotice("Google sign-in verified. Role loaded from server.");
+    },
+    [apiBase]
+  );
 
   const handleGoogleConnect = async () => {
     setAuthNotice("");
@@ -152,7 +155,7 @@ function AdminConsole() {
     });
 
     return () => unsubscribe();
-  }, []);
+  }, [exchangeGoogleToken]);
 
   return (
     <div className="app-shell">
