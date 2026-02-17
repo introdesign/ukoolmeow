@@ -27,6 +27,7 @@ function App() {
   return (
 
     <div>
+    Hello, Welcome
       <MeowSearch />
     </div>
     // <div className="home-shell">
