@@ -9,6 +9,7 @@ function App() {
     <div>
     Hello, Welcome
       <MeowSearch />
+      <MeowSearch />
     </div>
   
   );
