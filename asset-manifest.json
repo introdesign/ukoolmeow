@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.378a150e.css",
-    "main.js": "/static/js/main.10cd436c.js",
+    "main.css": "/static/css/main.87ebafe6.css",
+    "main.js": "/static/js/main.f3147d43.js",
     "static/js/453.7662e379.chunk.js": "/static/js/453.7662e379.chunk.js",
     "static/media/ukoolpro.png": "/static/media/ukoolpro.b883140e27d7f4234379.png",
     "static/media/meow.jpg": "/static/media/meow.9dea889a1ab6c66c6358.jpg",
     "index.html": "/index.html",
-    "main.378a150e.css.map": "/static/css/main.378a150e.css.map",
-    "main.10cd436c.js.map": "/static/js/main.10cd436c.js.map",
+    "main.87ebafe6.css.map": "/static/css/main.87ebafe6.css.map",
+    "main.f3147d43.js.map": "/static/js/main.f3147d43.js.map",
     "453.7662e379.chunk.js.map": "/static/js/453.7662e379.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.378a150e.css",
-    "static/js/main.10cd436c.js"
+    "static/css/main.87ebafe6.css",
+    "static/js/main.f3147d43.js"
   ]
 }
